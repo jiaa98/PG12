@@ -1,0 +1,63 @@
+[meta title:"12PG" description:"Short description of your project" /]
+
+[Header
+  fullWidth:true
+  title:"Week 12 Programming Assignment"
+  subtitle:"Amazon Top 50 Bestselling Books"
+  author:"Yunjia Zhang"
+  authorLink:""
+  date:`(new Date()).toDateString()`
+  background:"#000000"
+  color:"#gggggg"
+   /]
+
+[var name:"x" value:0 /]
+
+# Introduction
+
+Amazon Top 50 Bestselling Books 2009 - 2022
+
+dataset taken from kaggle
+
+
+# Data
+
+
+Now we can load this dataset with:
+
+```
+[data name:"Bestsellers" source:"bestsellers_with_categories_2022_03_27.csv" /]
+```
+
+[data name:"Bestsellers" source:"bestsellers_with_categories_2022_03_27.csv" /]
+
+We can check out our data really quick with an interactive table:
+
+[Table data:Bestsellers /]
+
+### Simple Scatter plots
+
+
+```
+[IdyllVegaLite data:Bestsellers spec:`{
+  width: 400,
+  height: 200,
+  mark: "line",
+  encoding: {
+    x: {field: "Reviews", type: "temporal", axis:{title:"Reviews", format:"%Y"}},
+    y: {field: "Price", type: "quantitative"},
+  }
+}` /]
+```
+
+
+[IdyllVegaLite data:Bestsellers spec:`{
+  width: 400,
+  height: 200,
+  mark: "line",
+  encoding: {
+    x: {field: "Reviews", type: "temporal", axis:{title:"Year", format:"%Y"}},
+    y: {field: "Price", type: "quantitative"},
+  }
+}` /]
+
